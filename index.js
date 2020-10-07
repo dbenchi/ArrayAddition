@@ -69,9 +69,7 @@ const arrayAdditionOperation = (
 
 const arrayAddition = (input) => {
   const goal = Math.max(...input);
-  const originalSetOfNumberToBeAdded = input.filter(
-    (number) => number !== goal
-  );
+  const originalSetOfNumberToBeAdded = input.sort((a, b) => b - a).splice(1);
 
   return arrayAdditionOperation(
     prepareAddedNumbers(originalSetOfNumberToBeAdded),
@@ -82,3 +80,4 @@ const arrayAddition = (input) => {
 console.log(arrayAddition([5, 7, 16, 1, 2]));
 console.log(arrayAddition([4, 6, 23, 10, 1, 3]));
 console.log(arrayAddition([3, 5, -1, 8, 12]));
+console.log(arrayAddition([1, 1]));
